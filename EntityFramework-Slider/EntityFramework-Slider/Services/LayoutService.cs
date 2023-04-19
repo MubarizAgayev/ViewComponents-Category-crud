@@ -8,14 +8,11 @@ namespace EntityFramework_Slider.Services
     public class LayoutService : ILayoutService
     {
         private readonly AppDbContext _context;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IBasketService _basketService;
         public LayoutService(AppDbContext context,
-                             IHttpContextAccessor httpContextAccessor,
                              IBasketService basketService)
         {
             _context = context;
-            _httpContextAccessor = httpContextAccessor;
             _basketService = basketService;
         }
 

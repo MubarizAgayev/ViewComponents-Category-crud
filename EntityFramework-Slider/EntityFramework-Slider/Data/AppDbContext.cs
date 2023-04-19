@@ -14,11 +14,13 @@ namespace EntityFramework_Slider.Data
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<BlogHeader> BlogHeaders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().HasQueryFilter(m => !m.SoftDelete);
-
+            modelBuilder.Entity<Blog>().HasQueryFilter(m => !m.SoftDelete);
+            modelBuilder.Entity<BlogHeader>().HasQueryFilter(m => !m.SoftDelete);
 
             modelBuilder.Entity<Setting>()
             .HasData(
@@ -40,6 +42,24 @@ namespace EntityFramework_Slider.Data
                     Key = "Email",
                     Value = "P135@code.edu.az"
                 }
+            );
+
+
+            modelBuilder.Entity<BlogHeader>()
+            .HasData(
+                new BlogHeader
+                {
+                    Id = 1,
+                    Tittle = "Hello P135",
+                    Description = "How are you?"
+                },
+                new BlogHeader
+                {
+                    Id = 2,
+                    Tittle = "Hello P414",
+                    Description = "How are you?"
+                }
+                
             );
         }
 

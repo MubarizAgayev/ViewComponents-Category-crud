@@ -9,11 +9,9 @@ namespace EntityFramework_Slider.Services
     public class BasketService : IBasketService
     {
 
-        private readonly AppDbContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public BasketService(AppDbContext context, IHttpContextAccessor httpContextAccessor)
+        public BasketService(IHttpContextAccessor httpContextAccessor)
         {
-            _context = context;
             _httpContextAccessor = httpContextAccessor;
         }
 

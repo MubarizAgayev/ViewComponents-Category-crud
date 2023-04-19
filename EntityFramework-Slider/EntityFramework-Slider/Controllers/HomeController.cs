@@ -33,8 +33,6 @@ namespace EntityFramework_Slider.Controllers
 
             SliderInfo sliderInfo = await _context.SliderInfos.FirstOrDefaultAsync();
 
-            IEnumerable<Blog> blogs = await _context.Blogs.Where(m=>!m.SoftDelete).ToListAsync();
-
             IEnumerable<Category> categories = await _context.Categories.Where(m => !m.SoftDelete).ToListAsync();
 
             IEnumerable<Product> products = await _context.Products.Include(m=>m.Images).ToListAsync();
@@ -46,7 +44,6 @@ namespace EntityFramework_Slider.Controllers
             {
                 Sliders = sliders,
                 SliderInfo = sliderInfo,
-                Blogs = blogs,
                 Categories = categories,
                 Products = products,
                 
